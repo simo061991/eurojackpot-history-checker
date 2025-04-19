@@ -8,6 +8,9 @@ This web application allows users to check EuroJackpot draws and see when their 
 - Results are sorted by the highest number of matches (e.g., `5+2` matched will be shown before `2+1`).
 - Simple and intuitive interface for selecting numbers and viewing results.
 
+## Disclaimer
+This project provides historical EuroJackpot data and results for informational purposes only. The data used by the application may be outdated or incorrect. While every effort has been made to ensure accuracy, there may be errors, and results should not be relied upon for official or gambling purposes.
+
 ## Demo
 
 You can view the live version of this project on [GitHub Pages](https://simo061991.github.io/eurojackpot-history-checker). This is where the app is hosted, and you can try out the functionality directly in your browser.
