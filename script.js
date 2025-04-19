@@ -63,12 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             matchedEuro
                         };
                     })
-                    // Filter the results to include at least 2 main numbers and 1 Euro number, or 3+0, 4+0, 5+0
+                    // Filter the results to include combinations like:
+                    // 5+2, 5+1, 5+0, 4+2, 4+1, 3+2, 4+0, 2+2, 3+1, 3+0, 1+2, 2+1
                     .filter(result => (
-                        (result.matchedMain >= 2 && result.matchedEuro >= 1) ||  // 2+1 or more
-                        result.matchedMain === 3 ||  // 3+0
-                        result.matchedMain === 4 ||  // 4+0
-                        result.matchedMain === 5     // 5+0
+                        (result.matchedMain === 5 && result.matchedEuro === 2) ||  // 5+2
+                        (result.matchedMain === 5 && result.matchedEuro === 1) ||  // 5+1
+                        (result.matchedMain === 5 && result.matchedEuro === 0) ||  // 5+0
+                        (result.matchedMain === 4 && result.matchedEuro === 2) ||  // 4+2
+                        (result.matchedMain === 4 && result.matchedEuro === 1) ||  // 4+1
+                        (result.matchedMain === 3 && result.matchedEuro === 2) ||  // 3+2
+                        (result.matchedMain === 4 && result.matchedEuro === 0) ||  // 4+0
+                        (result.matchedMain === 2 && result.matchedEuro === 2) ||  // 2+2
+                        (result.matchedMain === 3 && result.matchedEuro === 1) ||  // 3+1
+                        (result.matchedMain === 3 && result.matchedEuro === 0) ||  // 3+0
+                        (result.matchedMain === 1 && result.matchedEuro === 2) ||  // 1+2
+                        (result.matchedMain === 2 && result.matchedEuro === 1)     // 2+1
                     ))
                     // Sort results to show the highest matches first (main numbers * 10 + Euro numbers)
                     .sort((a, b) => {
@@ -82,13 +91,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     ? `<p>Found ${matchingDraws.length} draw(s) with valid combinations:</p>` +
                     '<ul>' + matchingDraws.map(draw => {
                         let matchText = `${draw.matchedMain}+${draw.matchedEuro}`;
-                        // If no Euro number is matched (3+0, 4+0, 5+0), show only main numbers
-                        if (draw.matchedEuro === 0) {
-                            matchText = `${draw.matchedMain}+0`; // For 3+0, 4+0, 5+0
-                        }
                         return `<li>${draw.date} - ${matchText} matched</li>`;
                     }).join('') + '</ul>'
-                    : '<p>No matches found with at least 2 main and 1 Euro number or other valid combinations.</p>';
+                    : '<p>No matches found with valid combinations.</p>';
             })
             .catch((err) => {
                 console.error("Error loading JSON:", err);
