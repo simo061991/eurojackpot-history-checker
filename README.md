@@ -10,7 +10,7 @@ This web application allows users to check EuroJackpot draws and see when their 
 
 ## Demo
 
-You can view the live version of this project on [GitHub Pages](https://your-username.github.io/your-repo-name). This is where the app is hosted, and you can try out the functionality directly in your browser.
+You can view the live version of this project on [GitHub Pages](https://simo061991.github.io/eurojackpot-history-checker). This is where the app is hosted, and you can try out the functionality directly in your browser.
 
 ## Installation
 
