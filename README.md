@@ -21,4 +21,4 @@ To run this project locally on your machine, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/simo061991/eurojackpot-history-checker.git
